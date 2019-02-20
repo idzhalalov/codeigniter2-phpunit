@@ -1,0 +1,13 @@
+### CodeIgniter ###
+*/config/development
+*/logs/log-*.php
+!*/logs/index.html
+*/cache/*
+!*/cache/index.html
+!*/cache/.htaccess
+
+*/vendor/
+.DS_Store
+composer.lock
+
+# End of https://www.gitignore.io/api/macos,codeigniter

@@ -1,0 +1,18 @@
+{
+  "name": "idzhalalov/codeigniter_phpunit",
+  "type": "project",
+  "config": {
+    "secure-http": false
+  },
+  "require": {
+    "php": "5.3.*",
+    "phpunit/phpunit": "^4.8"
+  },
+  "authors": [
+    {
+      "name": "idzhalalov",
+      "email": "idzhalalov@gmail.com",
+      "homepage": "http://xandersyard.com"
+    }
+  ]
+}

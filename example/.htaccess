@@ -1,0 +1,13 @@
+php_flag display_errors on
+DefaultLanguage ru
+AddDefaultCharset utf-8
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteCond $1 !^(index\.php|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
