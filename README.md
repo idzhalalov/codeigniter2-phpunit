@@ -30,7 +30,7 @@ class WelcomeTest.php extends CITestCase
     {
         parent::setUp();
         require_once APPPATH . 'controllers/welcome.php';
-        $this->ci = new Foo();
+        $this->ci = new Welcome();
     }
 
     public function test_index()
