@@ -2,16 +2,20 @@
 
 The class was made for testing Codeigniter using phpunit. You're able to test controllers, models and libraries. 
 
-## Usage
-
-The `example/` directory contains examples of usage.
-
 ## Dependencies
 
 - PHP >=5.3.3
 - composer
 
-### bootstrap.php
+## Usage
+
+### TL;DR
+
+The `example/` directory contains examples of usage.
+
+### Bootstrap
+
+#### /tests/bootstrap.php
 ```PHP
 <?php
 require __DIR__ . '/CITestCase.php';
@@ -20,7 +24,10 @@ CITestCase::$system_path = __DIR__ . "/../system";
 CITestCase::$app_path = __DIR__ . "/../application";
 ```
 
-### controllers/welcome.php
+
+### Testing a controller and a model
+
+#### tests/controllers/WelcomeTest.php
 ```PHP
 class WelcomeTest.php extends CITestCase
 {
@@ -41,7 +48,47 @@ class WelcomeTest.php extends CITestCase
         $this->assertTrue(strlen($result) > 0);
         $this->assertContains('Welcome', $result);
     }
+    
+    public function testSaluteModelData()
+    {
+        $_SERVER['CONTENT_TYPE'] = 'application/json';
 
+        ob_start();
+        $this->ci->salute();
+        $result = json_decode(ob_get_clean(), true);
+
+        $this->assertArrayHasKey('model_data', $result);
+        $this->assertTrue(
+            gettype($result['model_data']) == 'array'
+        );
+    }
+}
+```
+
+### Testing a library
+
+#### /tests/libraries/FooBarTest.php
+```PHP
+class FooBarTest extends CITestCase
+{
+    protected $ci, $lib;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        require_once APPPATH . 'controllers/welcome.php';
+        require_once APPPATH . 'libraries/FooBar.php';
+        $this->ci = new Welcome();
+        $this->lib = new FooBar();
+    }
+
+    public function testBar()
+    {
+        $this->assertTrue($this->lib->Bar(2) == 4);
+        $this->assertTrue($this->lib->Bar() == 2);
+    }
+}
 ```
 
 ## Contributing
