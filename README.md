@@ -29,7 +29,7 @@ CITestCase::$app_path = __DIR__ . "/../application";
 
 #### tests/controllers/WelcomeTest.php
 ```PHP
-class WelcomeTest.php extends CITestCase
+class WelcomeTest extends CITestCase
 {
     protected $ci;
 
