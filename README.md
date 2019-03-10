@@ -1,6 +1,6 @@
-# A base testcase for Codeigniter 2.x.x
+# Testing Codeigniter 2.x with phpunit
 
-The class was made for testing Codeigniter using phpunit. You're able to test controllers, models and libraries. 
+A base PHPUnit testcase for Codeigniter 2.x. The class was made for testing Codeigniter using phpunit. You're able to test controllers, models and libraries. 
 
 ## Dependencies
 
